@@ -7,24 +7,15 @@
 		if (event.key === 'Enter') { 
 			input += dt;
 		}
-		
 	}
 	
 </script>
 
 <style>
-
-	.block { 
-		display: "inline-block" ;
-		padding: 2rem;
-	}
-
 </style>
 
 <h3>{name},</h3>
 	<p>Enter some notes here, we'll make everything upper case as you type:</p>
-
-
 <label>Notes</label>
 <textarea rows="20" cols="100" bind:value={input} on:keyup={setTextData}></textarea>
 <p id="log"></p>

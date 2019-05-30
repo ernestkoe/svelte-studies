@@ -10,27 +10,18 @@
 	import Surname from "./Surname.svelte";
 	import UserInfo from "./UserInfo.svelte";
 	import Noter from "./Noter.svelte";
-
-	let input = "this is like magic";
-	function setTextData() {
-		input = input.toUpperCase();
-		
-	}
-	
+	import Taggerati from "./Tagger.svelte";
+	import Msgbox from "./Msgbox.svelte";	
 </script>
 
 <style>
-
-
 	h1 {
 		color: purple;
 	}
-
 	.block { 
 		display: "inline-block" ;
 		padding: 2rem;
 	}
-
 </style>
 
 
@@ -38,12 +29,8 @@
 <h1>Hello {name}!</h1>
 <button on:click={setRando}>Click to generate a random number</button>
 <p>The random number is {rando}</p>
-</div>
-
-
-<div class="block">
-<Surname />
-<UserInfo name="something" surname={"foo"} />
-<Noter />
+<UserInfo surname="Two" />
+<Msgbox />
+<Taggerati/>
 </div>
 
