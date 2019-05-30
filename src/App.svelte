@@ -26,11 +26,12 @@
 
 
 <div class="block">
+<Taggerati/>
 <h1>Hello {name}!</h1>
 <button on:click={setRando}>Click to generate a random number</button>
 <p>The random number is {rando}</p>
 <UserInfo surname="Two" />
 <Msgbox />
-<Taggerati/>
+
 </div>
 

@@ -3,25 +3,34 @@
   let mytags = {};
   let input = "";
   let dump = "";
+  const tagItKeys = [",", ";"];
 
   function handleinput() {
-    if (event.key === ",") {
-      //let i = Math.random();
+    let theKey = event.key;
+    let theKeyCode = event.keyCode;
+    if (tagItKeys.includes(theKey) || theKeyCode == 13) {
       input
+        .split(theKey)
         .slice(0, -1)
-        .split(",")
         .forEach(x => (mytags[x] = true));
       input = "";
     }
+    dump = theKeyCode;
   }
 </script>
 
 <style>
   .dump {
     display: block;
+    margin: 0.2em;
+    padding: .5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
   }
 
   .tag-box {
+    width: 320px;
+    min-height: 3em;
     border: 1px solid #d3d3d3;
     display: inline-block;
     padding: 0.5em;
