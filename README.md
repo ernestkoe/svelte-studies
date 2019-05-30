@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
-
 # svelte app
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
@@ -15,7 +10,6 @@ cd svelte-app
 ```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
 
 ## Get started
 
@@ -33,7 +27,6 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
 
 ## Deploying to the web
 
@@ -67,7 +60,3 @@ Then, from within your project folder:
 npm run build
 surge public
 ```
-=======
-# svelte-studies
-experimenting with and learning Svelte.
->>>>>>> bb939a154119bd4316d55c08cf0f706e87cb9c52

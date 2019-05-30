@@ -10,7 +10,7 @@
 	import Surname from "./Surname.svelte";
 	import UserInfo from "./UserInfo.svelte";
 	import Noter from "./Noter.svelte";
-	import Taggerati from "./Tagger.svelte";
+	import Taggerati from "./Taggerati.svelte";
 	import Msgbox from "./Msgbox.svelte";	
 </script>
 
