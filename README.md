@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
@@ -66,3 +67,7 @@ Then, from within your project folder:
 npm run build
 surge public
 ```
+=======
+# svelte-studies
+experimenting with and learning Svelte.
+>>>>>>> bb939a154119bd4316d55c08cf0f706e87cb9c52
