@@ -3,19 +3,27 @@
   let mytags = {};
   let input = "";
   let dump = "";
-  const tagItKeys = [",", ";"];
+  const tagSeparators = [",", ";"]; //whitespaces are included by default
+  var tagRegex = /\s|,|;/; //include whitespace, TODO: map the tagseparators to a regExp string
+  const tagInputTrigger = "Enter";
 
   function handleinput() {
     let theKey = event.key;
     let theKeyCode = event.keyCode;
-    if (tagItKeys.includes(theKey) || theKeyCode == 13) {
-      input
-        .split(theKey)
-        .slice(0, -1)
-        .forEach(x => (mytags[x] = true));
+    if (theKey == tagInputTrigger) {
+      if (tagRegex.test(input)) {
+        input
+          .split(tagRegex)
+          //.slice(0, -1)
+          .forEach(x => (mytags[x] = true));
+      } else {
+        mytags[input] = true;
+      }
+
       input = "";
     }
-    dump = theKeyCode;
+
+    dump = "keyCode: " + theKeyCode + " key: " + theKey;
   }
 </script>
 
@@ -23,8 +31,8 @@
   .dump {
     display: block;
     margin: 0.2em;
-    padding: .5em;
-    font-family: 'Courier New', Courier, monospace;
+    padding: 0.5em;
+    font-family: "Courier New", Courier, monospace;
     font-size: 75%;
   }
 
@@ -92,7 +100,7 @@
    -->
   {#each Object.keys(mytags) as tag}
     <div class="tag">
-      {tag}
+       {tag}
       <span class="close" />
     </div>
   {/each}
