@@ -2,28 +2,36 @@
   let title = "Taggerati";
   let mytags = {};
   let input = "";
-  let dump = "";
-  const tagSeparators = [",", ";"]; //whitespaces are included by default
-  var tagRegex = /\s|,|;/; //include whitespace, TODO: map the tagseparators to a regExp string
+  var dump = "";
+  // const tagSeparators = [",", ";"]; //whitespaces are included by default
+  var tagRegex = /\s*[,;]+\s*|[,;]+|\s+/;
+  const tagValidRegex = /^[^ ;,]+$/;
   const tagInputTrigger = "Enter";
 
   function handleinput() {
     let theKey = event.key;
     let theKeyCode = event.keyCode;
+    dump = input.split(tagRegex);
+
+    // listen for the trigger key, if we find it, process all of input as tags
     if (theKey == tagInputTrigger) {
       if (tagRegex.test(input)) {
         input
           .split(tagRegex)
           //.slice(0, -1)
-          .forEach(x => (mytags[x] = true));
+          .forEach(x => (tagValidRegex.test(x) ? (mytags[x] = true) : null));
       } else {
         mytags[input] = true;
       }
 
       input = "";
     }
+  }
 
-    dump = "keyCode: " + theKeyCode + " key: " + theKey;
+function deletetag(tag) {
+    delete mytags[tag];
+    console.log(JSON.stringify(mytags));
+    mytags = mytags;
   }
 </script>
 
@@ -91,7 +99,7 @@
 
 <h1>{title}</h1>
 <div class="tag-box">
-  <div class="label">Add tags (commas are separators):</div>
+  <div class="label">Add tags, hit enter:</div>
   <input class="tag-input" bind:value={input} on:keyup={handleinput} />
   <!--
     <div class="tag">Apple</div>
@@ -99,10 +107,10 @@
     <div class="tag">IBM</div>
    -->
   {#each Object.keys(mytags) as tag}
-    <div class="tag">
+    <div id={tag} class="tag" on:click={ () => deletetag(tag)}>
        {tag}
-      <span class="close" />
+			<span class="close"></span>
     </div>
   {/each}
-  <div class="dump">{dump}</div>
+  <div class="dump">input split: {dump}</div>
 </div>
