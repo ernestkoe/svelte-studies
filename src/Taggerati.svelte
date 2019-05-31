@@ -1,6 +1,6 @@
 <script>
   const title = "Taggerati";
-  const info = "a SvelteJS component by @proofgroup, 2019"
+  const info = "a SvelteJS component"
 
   let mytags = {};
   let input = "";
@@ -44,10 +44,21 @@
 
 <style>
 
+.title { 
+    padding: none;
+    margin-bottom: 0.25em;
+ }
+
+.subtitle { 
+    padding: none;
+    font-size: 0.9em;
+    margin-bottom: 0.25em;
+ }
+
  .label {
     display: block;
     padding-bottom: 0.25em;
-    font-size: 0.75em;
+    font-size: 0.9em;
   }
 
   .tag-box {
@@ -55,8 +66,7 @@
     min-height: 3em;
     border: 0.25px none #d3d3d3;
     display: inline-block;
-    padding: none;
-    cursor: pointer;
+    padding-top: 1em;
   }
 
   .tag-box .dump {
@@ -65,8 +75,6 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 75%;
   }
-
- 
 
   .tag-box .tag {
     display: inline-block;
@@ -123,10 +131,10 @@
   }
 </style>
 
-<h1>{title}</h1>
-<p class="label">{info}</p>
+<h1 class="title">{title}</h1>
+<div class="subtitle">{info}</div>
 <div class="tag-box">
-  <div class="label">Add tags, hit enter:</div>
+  <div class="label">Add some tags, hit enter:</div>
   <input class="tag-input" bind:value={input} on:keyup={handleInput} />
   <!--
     <div class="tag">Apple</div>
