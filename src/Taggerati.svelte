@@ -15,20 +15,20 @@
 
     // listen for the trigger key, if we find it, process all of input as tags
     if (theKey == tagInputTrigger) {
-      if (tagRegex.test(input)) {
-        input
-          .split(tagRegex)
-          //.slice(0, -1)
-          .forEach(x => (tagValidRegex.test(x) ? (mytags[x] = true) : null));
-      } else {
+      //  if (tagRegex.test(input)) {
+      input
+        .split(tagRegex)
+        //.slice(0, -1)
+        .forEach(x => (tagValidRegex.test(x) ? (mytags[x] = true) : null));
+      /*   } else {
         mytags[input] = true;
       }
-
+*/
       input = "";
     }
   }
 
-function deletetag(tag) {
+  function deletetag(tag) {
     delete mytags[tag];
     console.log(JSON.stringify(mytags));
     mytags = mytags;
@@ -107,9 +107,9 @@ function deletetag(tag) {
     <div class="tag">IBM</div>
    -->
   {#each Object.keys(mytags) as tag}
-    <div id={tag} class="tag" on:click={ () => deletetag(tag)}>
+    <div id={tag} class="tag" on:click={() => deletetag(tag)}>
        {tag}
-			<span class="close"></span>
+      <span class="close" />
     </div>
   {/each}
   <div class="dump">input split: {dump}</div>
