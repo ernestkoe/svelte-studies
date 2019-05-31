@@ -1,4 +1,7 @@
 <script>
+  const title = "Taggerati";
+  const info = "a SvelteJS component by @proofgroup, 2019"
+
   let mytags = {};
   let input = "";
   let selectedTag = "";
@@ -8,7 +11,7 @@
   var tagRegex = /\s*[,;]+\s*|[,;]+|\s+/;
   const tagValidRegex = /^[^ ;,]+$/;
   const tagInputTrigger = "Enter";
-  const title = "Taggerati";
+
 
   function handleInput() {
     let theKey = event.key;
@@ -40,28 +43,30 @@
 </script>
 
 <style>
-  .dump {
-    display: block;
-    margin: 0.2em;
-    padding: 0.5em;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 75%;
-  }
 
-  .label {
+ .label {
     display: block;
-    padding: 0.5em;
+    padding-bottom: 0.25em;
     font-size: 0.75em;
   }
 
   .tag-box {
-    width: 320px;
+    width: 480px;
     min-height: 3em;
-    border: 1px solid #d3d3d3;
+    border: 0.25px none #d3d3d3;
     display: inline-block;
-    padding: 0.5em;
+    padding: none;
     cursor: pointer;
   }
+
+  .tag-box .dump {
+    display: block;
+    padding-bottom: 0.25em;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 75%;
+  }
+
+ 
 
   .tag-box .tag {
     display: inline-block;
@@ -92,9 +97,7 @@
   }
 
   .tag-box .tag-input {
-    margin-left: 0.2em;
-    margin-right: 0.2em;
-    margin-bottom: 0.8em;
+    width: 75%;
     border: 0.5px solid #d3d3d3;
     border-radius: 0.25em;
     display: block;
@@ -121,6 +124,7 @@
 </style>
 
 <h1>{title}</h1>
+<p class="label">{info}</p>
 <div class="tag-box">
   <div class="label">Add tags, hit enter:</div>
   <input class="tag-input" bind:value={input} on:keyup={handleInput} />
