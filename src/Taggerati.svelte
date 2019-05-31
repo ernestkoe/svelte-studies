@@ -1,13 +1,14 @@
 <script>
-  let title = "Taggerati";
   let mytags = {};
   let input = "";
   let selectedTag = "";
   let selectedDisplay = "selected-display-off";
+
   var dump = "";
   var tagRegex = /\s*[,;]+\s*|[,;]+|\s+/;
   const tagValidRegex = /^[^ ;,]+$/;
   const tagInputTrigger = "Enter";
+  const title = "Taggerati";
 
   function handleInput() {
     let theKey = event.key;
@@ -28,7 +29,6 @@
     console.log(JSON.stringify(mytags));
     mytags = mytags;
     selectedDisplay = "selected-display-off";
-
   }
 
   function selectTag(tag) {
@@ -100,11 +100,11 @@
     display: block;
   }
 
- .tag-box .selected-display-off {
+  .tag-box .selected-display-off {
     display: none;
   }
 
- .tag-box .selected-display-on {
+  .tag-box .selected-display-on {
     display: inline-block;
     padding: 0.75em;
     padding-right: 1em;
@@ -118,7 +118,6 @@
     border-radius: 0.1em;
     font-size: 0.75em;
   }
-
 </style>
 
 <h1>{title}</h1>
