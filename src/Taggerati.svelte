@@ -31,7 +31,9 @@
     delete mytags[tag];
     console.log(JSON.stringify(mytags));
     mytags = mytags;
+    selectedTag = null;
     selectedDisplay = "selected-display-off";
+
   }
 
   function selectTag(tag) {
@@ -57,6 +59,7 @@
 
  .label {
     display: block;
+    padding-top: 0.25em;
     padding-bottom: 0.25em;
     font-size: 0.9em;
   }
@@ -78,11 +81,9 @@
 
   .tag-box .tag {
     display: inline-block;
-    padding: 0.75em;
-    padding-right: 1em;
-    padding-left: 1em;
-    margin-inline-end: 0.2em;
-    margin: 0.2em;
+    padding: .75em;
+    margin-inline-end: 0.33em;
+    margin-bottom: 0.33em;
     border: 0.5px none;
     color: darkslategray;
     cursor: pointer;
